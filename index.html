@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game List</title>
+    <title>Game List with Images</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,24 +25,38 @@
 
         .game-card {
             background: #1e1e1e;
-            padding: 20px;
             border-radius: 10px;
-            width: 200px;
+            width: 220px;
+            overflow: hidden;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            transition: transform 0.2s;
+            transition: transform 0.3s;
         }
 
         .game-card:hover {
             transform: scale(1.05);
         }
 
-        .game-card a {
+        .game-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .game-content {
+            padding: 15px;
+        }
+
+        .game-content h3 {
+            margin: 10px 0;
+        }
+
+        .game-content a {
             text-decoration: none;
             color: #00ffcc;
             font-weight: bold;
         }
 
-        .game-card a:hover {
+        .game-content a:hover {
             text-decoration: underline;
         }
     </style>
@@ -57,19 +71,23 @@
         const games = [
             {
                 name: "GTA V",
-                link: "https://gofile.io/d/Awi5p5"
+                link: "https://gofile.io/d/Awi5p5",
+                image: "https://wallpapercave.com/wp/wp1813128.jpg"
             },
             {
                 name: "PUBG",
-                link: "#"
+                link: "#",
+                image: "https://wallpapercave.com/wp/wp7426625.jpg"
             },
             {
                 name: "Call of Duty",
-                link: "#"
+                link: "#",
+                image: "https://wallpapercave.com/wp/wp5072456.jpg"
             },
             {
                 name: "Minecraft",
-                link: "#"
+                link: "#",
+                image: "https://wallpapercave.com/wp/wp2337005.jpg"
             }
         ];
 
@@ -80,8 +98,11 @@
             card.className = "game-card";
 
             card.innerHTML = `
-                <h3>${game.name}</h3>
-                <a href="${game.link}" target="_blank">Download / Open</a>
+                <img src="${game.image}" alt="${game.name}">
+                <div class="game-content">
+                    <h3>${game.name}</h3>
+                    <a href="${game.link}" target="_blank">Download / Open</a>
+                </div>
             `;
 
             container.appendChild(card);
